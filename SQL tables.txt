@@ -1,0 +1,24 @@
+CREATE TABLE `medi-mouz`.`doctor` ( `DocId` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , `first_name` VARCHAR(50) NOT NULL , `last_name` VARCHAR(50) NOT NULL , `fofspec` VARCHAR(100) NOT NULL , `license_num` INT NOT NULL , `email` INT NOT NULL , `phone_num` INT NOT NULL , PRIMARY KEY (`DocId`)) ENGINE = InnoDB;
+
+
+
+
+if  ($row_cnt == True) {
+	header("Location: Medi-Mouz_Landing.html");
+}else {
+    header("Location: Medi-Mouz_LogIn.html");
+
+echo $row_cnt[0];
+
+SELECT * FROM `medi-mouz`.`doctor` WHERE (CONVERT(`DocId` USING utf8) LIKE '%Albert%' OR CONVERT(`username` USING utf8) LIKE '%Albert%' OR CONVERT(`password` USING utf8) LIKE '%Albert%' OR CONVERT(`first_name` USING utf8) LIKE '%Albert%' OR CONVERT(`last_name` USING utf8) LIKE '%Albert%' OR CONVERT(`fofspec` USING utf8) LIKE '%Albert%' OR CONVERT(`license_num` USING utf8) LIKE '%Albert%' OR CONVERT(`email` USING utf8) LIKE '%Albert%' OR CONVERT(`phone_num` USING utf8) LIKE '%Albert%') ORDER BY `DocId` ASC
+$sql = "SELECT *  FROM `medi-mouz`.`doctor` WHERE (CONVERT(`DocId` USING utf8) LIKE \'%Albert%\' OR CONVERT(`username` USING utf8) LIKE \'%Albert%\' OR CONVERT(`password` USING utf8) LIKE \'%Albert%\' OR CONVERT(`first_name` USING utf8) LIKE \'%Albert%\' OR CONVERT(`last_name` USING utf8) LIKE \'%Albert%\' OR CONVERT(`fofspec` USING utf8) LIKE \'%Albert%\' OR CONVERT(`license_num` USING utf8) LIKE \'%Albert%\' OR CONVERT(`email` USING utf8) LIKE \'%Albert%\' OR CONVERT(`phone_num` USING utf8) LIKE \'%Albert%\') ORDER BY `DocId`  ASC;";
+
+
+SELECT *  FROM `medi-mouz`.`patient` WHERE (CONVERT(`Pat_Id` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_FName` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_LName` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Age` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Sex` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Allergies` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Vac_Status` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Weight` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_SSN` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Ins_Nr` USING utf8) LIKE '%Maika%')  OR  (CONVERT(`Pat_Id` USING utf8) LIKE '%Simpson%' OR CONVERT(`Pat_FName` USING utf8) LIKE '%Simpson%' OR CONVERT(`Pat_LName` USING utf8) LIKE '%Simpson%' OR CONVERT(`Pat_Age` USING utf8) LIKE '%Simpson%' OR CONVERT(`Pat_Sex` USING utf8) LIKE '%Simpson%' OR CONVERT(`Pat_Allergies` USING utf8) LIKE '%Simpson%' OR CONVERT(`Pat_Vac_Status` USING utf8) LIKE '%Simpson%' OR CONVERT(`Pat_Weight` USING utf8) LIKE '%Simpson%' OR CONVERT(`Pat_SSN` USING utf8) LIKE '%Simpson%' OR CONVERT(`Pat_Ins_Nr` USING utf8) LIKE '%Simpson%')
+
+SELECT * FROM `medi-mouz`.`patient` WHERE (CONVERT(`Pat_Id` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_FName` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_LName` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Age` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Sex` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Allergies` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Vac_Status` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Weight` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_SSN` USING utf8) LIKE '%Maika%' OR CONVERT(`Pat_Ins_Nr` USING utf8) LIKE '%Maika%')
+$sql = "SELECT *  FROM `medi-mouz`.`patient` WHERE (CONVERT(`Pat_Id` USING utf8) LIKE \'%Maika%\' OR CONVERT(`Pat_FName` USING utf8) LIKE \'%Maika%\' OR CONVERT(`Pat_LName` USING utf8) LIKE \'%Maika%\' OR CONVERT(`Pat_Age` USING utf8) LIKE \'%Maika%\' OR CONVERT(`Pat_Sex` USING utf8) LIKE \'%Maika%\' OR CONVERT(`Pat_Allergies` USING utf8) LIKE \'%Maika%\' OR CONVERT(`Pat_Vac_Status` USING utf8) LIKE \'%Maika%\' OR CONVERT(`Pat_Weight` USING utf8) LIKE \'%Maika%\' OR CONVERT(`Pat_SSN` USING utf8) LIKE \'%Maika%\' OR CONVERT(`Pat_Ins_Nr` USING utf8) LIKE \'%Maika%\');";
+
+
+
+ALTER TABLE `patient` ADD `hfname` VARCHAR(100) NOT NULL AFTER `Pat_Ins_Nr`, ADD `dob` DATE NOT NULL AFTER `hfname`, ADD `chkup` DATE NOT NULL AFTER `dob`, ADD `appt` TIME NOT NULL AFTER `chkup`, ADD `pnum` VARCHAR(16) NOT NULL AFTER `appt`, ADD `pocc` VARCHAR(50) NOT NULL AFTER `pnum`, ADD `phadd` VARCHAR(200) NOT NULL AFTER `pocc`, ADD `email` VARCHAR(100) NOT NULL AFTER `phadd`, ADD `hpi` VARCHAR(2000) NOT NULL AFTER `email`, ADD `pmh` VARCHAR(2000) NOT NULL AFTER `hpi`, ADD `obj` VARCHAR(2000) NOT NULL AFTER `pmh`, ADD `assess` VARCHAR(2000) NOT NULL AFTER `obj`, ADD `plan` VARCHAR(2000) NOT NULL AFTER `assess`, ADD `invs` VARCHAR(2000) NOT NULL AFTER `plan`, ADD `labtest` VARCHAR(100) NOT NULL AFTER `invs`, ADD `eps` VARCHAR(100) NOT NULL AFTER `labtest`, ADD `image_uploads` VARCHAR(100) NOT NULL AFTER `eps`, ADD `otherfiles` VARCHAR(100) NOT NULL AFTER `image_uploads`, ADD `ddx` VARCHAR(2000) NOT NULL AFTER `otherfiles`;
