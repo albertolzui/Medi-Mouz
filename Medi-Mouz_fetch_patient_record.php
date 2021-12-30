@@ -79,6 +79,11 @@ session_start();
 				$DocId = $_SESSION["DocId"];
 				$pfname = $_SESSION["fname"];
 				$plname = $_SESSION["lname"];
+				$get_Pat_Id = mysqli_query($con, "SELECT Pat_Id, Pat_Vac_Status FROM `patient` WHERE `Pat_FName` = '$pfname' AND `Pat_LName` = '$plname'");
+				$row_cnt = mysqli_fetch_row($get_Pat_Id);
+				$_SESSION["Pat_id"] = $row_cnt[0];
+				$PatId = $_SESSION["Pat_id"];
+				
 				
 				echo "<font color='#00c2cb'> Patient Record for " . $pfname . " " . $plname . "</font><br><br>";
 
@@ -1257,6 +1262,17 @@ session_start();
 				echo "<hr>";				
 				echo "<hr>";				
 				echo "<br>";
+				
+				$result15 = mysqli_query($con, "SELECT id, image, image_text FROM images INNER join patient, patient_images WHERE patient.Pat_Id = patient_images.Pat_Id and patient_images.Pat_Id = $PatId");
+
+				while ($row = mysqli_fetch_array($result15)) 
+					{
+					echo "<div id='img_div'>";
+					echo "<img src='images/".$row['image']."' >";
+					echo "<p>".$row['image_text']."</p>";
+					echo "</div>";
+					}
+
 
 				?>
 			</div><div style="font-size:20px; margin-top:60px; width:300px" class="bg-gradient container-fluid ml-5 mr-5 mb-5 p-3 my-5 border rounded border-success text-left"><p align="center" style="background-color:#002f42; font-size:20px"><a align="center" style="color:#00c2cb" class="btn text-center" href="Medi-Mouz_update_patient_record.php" role="button">Update patient record</a><br><a align="center" style="color:#00c2cb" class="btn text-center" href="Medi-Mouz_delete_patient_record.php" role="button">Delete patient record</a><br></p>
@@ -1265,14 +1281,6 @@ session_start();
 		</div></h1>
 	</div>
 </div>	
-//<?php
-    //while ($row = mysqli_fetch_array($result)) {
-      //echo "<div id='img_div'>";
-      	//echo "<img src='images/".$row['image']."' >";
-      	//echo "<p>".$row['image_text']."</p>";
-      //echo "</div>";
-    //}
-//?>
 
 
 

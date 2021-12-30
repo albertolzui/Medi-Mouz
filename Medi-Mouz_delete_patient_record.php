@@ -28,7 +28,7 @@ $sql = "DELETE FROM `patient` WHERE patient.Pat_FName = '$pfname' AND patient.Pa
 $result = mysqli_query($con, $sql);
 			
 if ($result) {
-	$done = "Patient's record have successfully been deleted ";
+	$done = " <font size ='16px'>Patient's record have successfully been deleted </font>";
 	echo $done;
 }
 
@@ -97,14 +97,6 @@ if ($result) {
 		</div></h1>
 	</div>
 </div>	
-//<?php
-    //while ($row = mysqli_fetch_array($result)) {
-      //echo "<div id='img_div'>";
-      	//echo "<img src='images/".$row['image']."' >";
-      	//echo "<p>".$row['image_text']."</p>";
-      //echo "</div>";
-    //}
-//?>
 
 
 
