@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2021 at 12:58 AM
+-- Generation Time: Jan 03, 2022 at 11:07 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -29,7 +29,6 @@ USE `medi-mouz`;
 -- Table structure for table `doctor`
 --
 -- Creation: Dec 23, 2021 at 06:03 PM
--- Last update: Dec 27, 2021 at 10:31 AM
 --
 
 DROP TABLE IF EXISTS `doctor`;
@@ -87,7 +86,6 @@ INSERT INTO `doctor` (`DocId`, `username`, `password`, `first_name`, `last_name`
 -- Table structure for table `doctor_records_patient`
 --
 -- Creation: Dec 29, 2021 at 09:22 PM
--- Last update: Dec 29, 2021 at 10:05 PM
 --
 
 DROP TABLE IF EXISTS `doctor_records_patient`;
@@ -125,7 +123,6 @@ INSERT INTO `doctor_records_patient` (`Doc_ID`, `Pat_ID`) VALUES
 -- Table structure for table `images`
 --
 -- Creation: Dec 27, 2021 at 04:38 PM
--- Last update: Dec 29, 2021 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `images`;
@@ -153,7 +150,6 @@ INSERT INTO `images` (`id`, `image`, `image_text`) VALUES
 -- Table structure for table `patient`
 --
 -- Creation: Dec 29, 2021 at 09:19 AM
--- Last update: Dec 29, 2021 at 10:05 PM
 --
 
 DROP TABLE IF EXISTS `patient`;
@@ -259,7 +255,6 @@ INSERT INTO `patient` (`Pat_Id`, `Pat_FName`, `Pat_LName`, `Pat_Age`, `Pat_Sex`,
 -- Table structure for table `patient_images`
 --
 -- Creation: Dec 29, 2021 at 10:01 PM
--- Last update: Dec 29, 2021 at 10:05 PM
 --
 
 DROP TABLE IF EXISTS `patient_images`;
