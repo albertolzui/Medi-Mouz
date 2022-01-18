@@ -32,12 +32,12 @@ session_start();
 	<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
  <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 		<div class="mr-auto w-75 p-2">
-			<span><a href="Medi-Mouz_Home_Logged_In">Home</a> | 
-			<a href="Medi-Mouz_Documentation.html">Documentation</a> 
+			<span><a href="Medi-Mouz_Home_Logged_In.html">Home</a> | 
+			<a href="Medi-Mouz_Documentation_LoggedIn.html">Documentation</a> 
 			| 
-			<a href="Medi-Mouz_Team.html">The Medi-Mouz Team</a>
+			<a href="Medi-Mouz_Team_LoggedIn.html">The Medi-Mouz Team</a>
 			| 
-			<a href="Medi-Mouz_TermsOfService.html">Terms of Service</a></span>
+			<a href="Medi-Mouz_TermsOfService_LoggedIn.html">Terms of Service</a></span>
 		</div>
 		<div class="ml-auto w-75 p-2">
 			

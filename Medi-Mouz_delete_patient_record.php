@@ -13,26 +13,7 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body style="background-color:#f2f3f4">
-<?php
-// Create database connection
-$con = mysqli_connect('localhost', 'Medi-Mouz', 'admin@medi-mouz2021','medi-mouz');
-$uname = $_SESSION["uname"];
-$DocId = $_SESSION["DocId"];
-$pfname = $_SESSION["fname"];
-$plname = $_SESSION["lname"];
-		
 
-				
-//$sql = "SELECT DISTINCT Pat_Id, Pat_FName, Pat_LName FROM `patient` INNER JOIN `doctor_records_patient` INNER JOIN `doctor` WHERE `DocId` = '$DocId'";
-$sql = "DELETE FROM `patient` WHERE patient.Pat_FName = '$pfname' AND patient.Pat_LName = '$plname'";
-$result = mysqli_query($con, $sql);
-			
-if ($result) {
-	$done = " <font size ='16px'>Patient's record have successfully been deleted </font>";
-	echo $done;
-}
-
-?>
 <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 <div style="background-color:#f2f3f4" class="container-fluid p-4 text-white text-center">
   <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo">
@@ -52,12 +33,12 @@ if ($result) {
 	<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
  <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 		<div class="mr-auto w-75 p-2">
-			<span><a href="Medi-Mouz.html">Home</a> | 
-			<a href="Medi-Mouz_Documentation.html">Documentation</a> 
+			<span><a href="Medi-Mouz_Logged_In.html">Home</a> | 
+			<a href="Medi-Mouz_Documentation_LoggedIn.html">Documentation</a> 
 			| 
-			<a href="Medi-Mouz_Team.html">The Medi-Mouz Team</a>
+			<a href="Medi-Mouz_Team_LoggedIn.html">The Medi-Mouz Team</a>
 			| 
-			<a href="Medi-Mouz_TermsOfService.html">Terms of Service</a></span>
+			<a href="Medi-Mouz_TermsOfService_LoggedIn.html">Terms of Service</a></span>
 		</div>
 		<div class="ml-auto w-75 p-2">
 			
@@ -92,11 +73,32 @@ if ($result) {
 				<p style="font-size:16px; padding:2px 5px 2px 300px; width:600px"> 
 				<a href="Medi-Mouz_existing.php" class="link-info">View other records</a></p> 
 			
+			<?php
+// Create database connection
+$con = mysqli_connect('localhost', 'Medi-Mouz', 'admin@medi-mouz2021','medi-mouz');
+$uname = $_SESSION["uname"];
+$DocId = $_SESSION["DocId"];
+$pfname = $_SESSION["fname"];
+$plname = $_SESSION["lname"];
+		
+
+				
+//$sql = "SELECT DISTINCT Pat_Id, Pat_FName, Pat_LName FROM `patient` INNER JOIN `doctor_records_patient` INNER JOIN `doctor` WHERE `DocId` = '$DocId'";
+$sql = "DELETE FROM `patient` WHERE patient.Pat_FName = '$pfname' AND patient.Pat_LName = '$plname'";
+$result = mysqli_query($con, $sql);
 			
+if ($result) {
+	$done = " <font-size ='10px'>Patient's record have successfully been deleted </font>";
+	echo $done;
+}
+
+?>
 			</div>
 		</div></h1>
+
+
 	</div>
-</div>	
+
 
 
 

@@ -59,7 +59,7 @@ session_start();
 	<h2 class="bland"> 				
 		<div class="imgcontainer">
 			<img src="medi-mouz.png" alt="Avatar" class="avatar">
-		</div> Logging in... <a href="Medi-Mouz_LogIn.html" class="link-info">Please wait..</a></p> 
+		</div> Making Changes... <a href="Medi-Mouz_LogIn.html" class="link-info">Please wait..</a></p> 
 
 		
 <?php
