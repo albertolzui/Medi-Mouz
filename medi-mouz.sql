@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2022 at 11:07 AM
+-- Generation Time: Jan 19, 2022 at 11:21 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -78,7 +78,8 @@ INSERT INTO `doctor` (`DocId`, `username`, `password`, `first_name`, `last_name`
 (1, 'alolz', 'overlyhyped', 'Albert', 'Olz', 'Clinical Pathology', 'NH899228', 'albert@live.com', '07038707451'),
 (2, 'alolz', 'overbearing', 'Albert', 'Olz', 'Clinical Pathology', 'NH899228', 'albert@live.com', '07038707451'),
 (6, 'Mich', 'biscuits', 'Michael', 'Reiter', 'Clinical Pathology', 'NG77773338', 'ab@ab.com', '07038707451'),
-(7, 'emmanuelo', 'cronaldo', 'Emmanuel ', 'Olorunfemi', 'Immune Disorders', 'NP99882200', 'oluwasegun.olorunfemi@stud.th-deg.de', '09098989897');
+(7, 'emmanuelo', 'cronaldo', 'Emmanuel ', 'Olorunfemi', 'Immune Disorders', 'NP99882200', 'oluwasegun.olorunfemi@stud.th-deg.de', '09098989897'),
+(8, 'Mugl', 'michaelisawesome', 'Michael', 'Reiter', 'Gynaecology', 'NH990987', 'michael@reiter.com', '4500200201');
 
 -- --------------------------------------------------------
 
@@ -122,12 +123,12 @@ INSERT INTO `doctor_records_patient` (`Doc_ID`, `Pat_ID`) VALUES
 --
 -- Table structure for table `images`
 --
--- Creation: Dec 27, 2021 at 04:38 PM
+-- Creation: Jan 18, 2022 at 03:20 PM
 --
 
 DROP TABLE IF EXISTS `images`;
 CREATE TABLE `images` (
-  `id` int(11) NOT NULL,
+  `id` int(10) NOT NULL,
   `image` varchar(100) NOT NULL,
   `image_text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -141,8 +142,7 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `image`, `image_text`) VALUES
-(0, 'Sustainable healthcare.png', 'A picture that doesn\'t show a broken leg'),
-(0, 'Sustainable healthcare.png', 'Endoscopy');
+(1, 'me.png', 'ssssssssssssssssssssssssssssssss');
 
 -- --------------------------------------------------------
 
@@ -272,13 +272,6 @@ CREATE TABLE `patient_images` (
 --
 
 --
--- Dumping data for table `patient_images`
---
-
-INSERT INTO `patient_images` (`Pat_Id`, `img_id`) VALUES
-(11, 0);
-
---
 -- Indexes for dumped tables
 --
 
@@ -300,6 +293,7 @@ ALTER TABLE `doctor_records_patient`
 -- Indexes for table `images`
 --
 ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
 
 --
@@ -324,13 +318,19 @@ ALTER TABLE `patient_images`
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `DocId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `DocId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `Pat_Id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Pat_Id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
@@ -349,6 +349,97 @@ ALTER TABLE `doctor_records_patient`
 ALTER TABLE `patient_images`
   ADD CONSTRAINT `fk_img_pat` FOREIGN KEY (`img_id`) REFERENCES `images` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_pat_img` FOREIGN KEY (`Pat_Id`) REFERENCES `patient` (`Pat_Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+--
+-- Metadata
+--
+USE `phpmyadmin`;
+
+--
+-- Metadata for table doctor
+--
+
+--
+-- Dumping data for table `pma__column_info`
+--
+
+INSERT INTO `pma__column_info` (`db_name`, `table_name`, `column_name`, `comment`, `mimetype`, `transformation`, `transformation_options`, `input_transformation`, `input_transformation_options`) VALUES
+('medi-mouz', 'doctor', 'DocId', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'doctor', 'email', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'doctor', 'first_name', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'doctor', 'fofspec', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'doctor', 'last_name', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'doctor', 'license_num', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'doctor', 'password', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'doctor', 'phone_num', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'doctor', 'username', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', '');
+
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'medi-mouz', 'doctor', '{\"sorted_col\":\"`doctor`.`DocId`  ASC\"}', '2021-12-23 18:00:49');
+
+--
+-- Metadata for table doctor_records_patient
+--
+
+--
+-- Dumping data for table `pma__column_info`
+--
+
+INSERT INTO `pma__column_info` (`db_name`, `table_name`, `column_name`, `comment`, `mimetype`, `transformation`, `transformation_options`, `input_transformation`, `input_transformation_options`) VALUES
+('medi-mouz', 'doctor_records_patient', 'Doc_ID', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'doctor_records_patient', 'Pat_ID', '', '', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', '');
+
+--
+-- Metadata for table images
+--
+
+--
+-- Metadata for table patient
+--
+
+--
+-- Dumping data for table `pma__column_info`
+--
+
+INSERT INTO `pma__column_info` (`db_name`, `table_name`, `column_name`, `comment`, `mimetype`, `transformation`, `transformation_options`, `input_transformation`, `input_transformation_options`) VALUES
+('medi-mouz', 'patient', 'Pat_Id', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'Pat_FName', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'Pat_LName', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'Pat_Age', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'Pat_Sex', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'Pat_Allergies', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'Pat_Vac_Status', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'Pat_Weight', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'Pat_SSN', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'Pat_Ins_Nr', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'hfname', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'dob', '', 'text_plain', 'output/text_plain_dateformat.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'chkup', '', 'text_plain', 'output/text_plain_dateformat.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'appt', '', 'text_plain', 'output/text_plain_dateformat.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'pnum', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'pocc', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'phadd', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'email', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', ''),
+('medi-mouz', 'patient', 'hpi', '', 'text_plain', '', '', '', ''),
+('medi-mouz', 'patient', 'pmh', '', 'text_plain', '', '', '', ''),
+('medi-mouz', 'patient', 'obj', '', 'text_plain', '', '', '', ''),
+('medi-mouz', 'patient', 'assess', '', 'text_plain', '', '', '', ''),
+('medi-mouz', 'patient', 'plan', '', 'text_plain', '', '', '', ''),
+('medi-mouz', 'patient', 'invs', '', 'text_plain', '', '', '', ''),
+('medi-mouz', 'patient', 'ddx', '', 'text_plain', 'output/text_plain_xml.php', '', 'Input/Text_Plain_XmlEditor.php', '');
+
+--
+-- Metadata for table patient_images
+--
+
+--
+-- Metadata for database medi-mouz
+--
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
