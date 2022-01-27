@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body style="background-color:#f2f3f4">
-<script type="text/javascript" src="https://cookieconsent.popupsmart.com/src/js/popper.js"></script><script> window.start.init({Palette:"palette6",Mode:"floating left",Theme:"block",Message:"Medi-Mouz EHR uses strictly necessary cookies to improve your overall usage experience.",Location:"Medi-Mouz_TermsOfService.html",Time:"5",})</script>
+
 <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 <div style="background-color:#f2f3f4" class="container-fluid p-4 text-white text-center">
   <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo">
@@ -29,20 +32,18 @@
 	<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
  <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 		<div class="mr-auto w-75 p-2">
-			<span><a href="Medi-Mouz.html">Home</a> | 
-			<a href="Medi-Mouz_Documentation.pdf" target="_blank">Documentation</a> 
+			<span><a href="Medi-Mouz.html_Logged_In.html">Home</a> | 
+			<a href="Medi-Mouz_Documentation_LoggedIn.html">Documentation</a> 
 			| 
-			<a href="Medi-Mouz_Team.html">The Medi-Mouz Team</a>
+			<a href="Medi-Mouz_Team_LoggedIn.html">The Medi-Mouz Team</a>
 			| 
-			<a href="Medi-Mouz_TermsOfService.html">Terms of Service</a></span>
+			<a href="Medi-Mouz_TermsOfService_LoggedIn.html">Terms of Service</a></span>
 		</div>
 		<div class="ml-auto w-75 p-2">
 			
 		</div>
 		<div class="ml-auto float-right w-25 p-2">
-			<span><a href="Medi-Mouz_LogIn.html">Log In</a>
-			|
-			<a href="Medi-Mouz_SignUp.html">Register</a></span>
+			<span><a href="Medi-Mouz_Landing.php">Return to Dashboard</a></span>
 		</div>
 	</div>
 </div>
@@ -119,31 +120,27 @@
 </div>
 
 <div class="mx-auto" style="width:1100px">
-	<div style="background-color:#00c2cb; color:white" class="container mt-3 p-5 my-5 border">
+	<div style="background-color:#00c2cb" class="container mt-3 p-5 my-5 border">
 		<div class="row">
-			<div style="text-align:justify" class="col-sm-4">
-				<h3 style="text-align:center">Security</h3>
-				<p>We take pride to ensure the security of all patient information available to us.
-				Be confident to provide all necessary information to the best of your knowledge to enable us to serve you better. </p>
+			<div class="col-sm-4">
+				<h3 style="text-align:center">Secure</h3>
+				<p>The very best firewalls and encrytion to keep health records safe</p>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
 			</div>
-			<div style="text-align:justify" class="col-sm-4">
-				<h3 style="text-align:center">Bridging the gap</h3>
-				<p>Distance isn’t a barrier. You may be far but certainly within reach, you are just a click away.
-				Most times the wait for a doctors’ appointment or getting to see a doctor on the day of the appointment can be mentally draining and tiring. Our aim is to relief patients and doctors the unnecessary waiting period.</p>
+			<div class="col-sm-4">
+				<h3 style="text-align:center">Functional Interface</h3>
+				<p>Stylish and highly functional user interface</p>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
 			</div>
-			<div style="text-align:justify" class="col-sm-4">
-				<h3 style="text-align:center">Go digital</h3>   
-				<p>Do not be afraid to move with the fast-paced society of digital health. We understand your fears, however, take risk and experience the difference. 
-				Receive the same treatment plan at your comfort zone.</p>
+			<div class="col-sm-4">
+				<h3 style="text-align:center">Cloud Based</h3>   
+				<br>
+				<p>Accessible from anywhere and with any computer</p>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="mx-auto" style="width:1100px">
-	<div align="center" style="background-color:#00c2cb; text-align:center; color:white" class="bland2 container mt-3 p-5 my-5 border">
-	<p style="text-align:center"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;All Rights Reserved. Medi-Mouz EHR (c) 2022</p>
-	</div>
-	</div>	
 </body>
 </html>

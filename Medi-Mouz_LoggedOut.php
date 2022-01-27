@@ -26,7 +26,7 @@ session_start();
 
 		<div class="mr-auto w-75 p-2">
 			<span><a href="Medi-Mouz.html">Home</a> | 
-			<a href="Medi-Mouz_Documentation.html">Documentation</a> 
+			<a href="Medi-Mouz_Documentation.pdf" target="_blank">Documentation</a> 
 			| 
 			<a href="Medi-Mouz_Team.html">The Medi-Mouz Team</a>
 			| 

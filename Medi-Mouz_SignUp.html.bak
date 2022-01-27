@@ -30,7 +30,7 @@
  <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 		<div class="mr-auto w-75 p-2">
 			<span><a href="Medi-Mouz.html">Home</a> | 
-			<a href="Medi-Mouz_Documentation.pdf" target="_blank">Documentation</a> 
+			<a href="Medi-Mouz_Documentation.html">Documentation</a> 
 			| 
 			<a href="Medi-Mouz_Team.html">The Medi-Mouz Team</a>
 			| 
@@ -41,29 +41,46 @@
 		</div>
 		<div class="ml-auto float-right w-25 p-2">
 			<span>
-			<a href="Medi-Mouz_SignUp.html">Register</a></span>
+			<a href="Medi-Mouz_LogIn.html">Log In</a></span>
 		</div>
 	</div>
 </div>
 
-<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
-</div>
 
 <div class="mx-auto rounded border-success mt-5" style="width:600px;">
 
-	<div style="background-color:#002f42; height:800px;" class="bg-gradient container ml-5 mr-5 mb-5 p-5 my-5 border rounded border-success"> 
-
-	<h2 class="bland"> 				
-				<div class="imgcontainer">
-					<img src="medi-mouz.png" alt="Avatar" class="avatar">
-				</div> Login to access your Medi-Mouz EHR Dashboard </h2>
+	<div style="background-color:#002f42;" class="bg-gradient container ml-5 mr-5 mb-5 p-5 my-5 border rounded border-success"> 
+	<h2 class="bland2"> Sign Up to use Medi-Mouz EHR</h2>
 		<div class="p-5">
-
-		<form action="Medi-Mouz_Log_In_Validate.php" method="post">
+		
+		<form action="Medi-Mouz_Sign_Up_SQL_Insert.php" method="post">
 			<div class="mb-5">
-				<label for="uname" class="form-label">Username</label>
+				<label for="uname" class="form-label">Choose a Username:</label>
 				<input type="text" placeholder="Enter Username" name="uname" class="form-control" required>
 			</div>
+						<div class="mb-5">
+				<label for="uname" class="form-label">First Name:</label>
+				<input type="text" placeholder="Enter your first name" name="fname" class="form-control" required>
+			</div>
+			<div class="mb-5">
+				<label for="uname" class="form-label">Last Name/Surname:</label>
+				<input type="text" placeholder="Enter your Last Name/Surname:" name="lname" class="form-control" required>
+			</div>
+			<div class="mb-5">
+				<label for="uname" class="form-label">Practicing License Number:</label>
+				<input type="text" placeholder="Enter your practicing license number:" name="plnr" class="form-control" required>
+			</div>
+			<div class="mb-5">
+				<label for="uname" class="form-label">Phone Number:</label>
+				<input type="text" placeholder="Enter your phone number:" name="phonenum" class="form-control" required>
+			</div>			<div class="mb-5">
+				<label for="uname" class="form-label">Field of Specialization:</label>
+				<input type="text" placeholder="Enter your field of specialization:" name="fofspec" class="form-control" required>
+			</div>
+			<div class="mb-5">
+				<label for="exampleInputEmail1" class="form-label">Email address:</label>
+				<input type="email" name="email" class="form-control" placeholder="Enter your email address">
+			</div>--->
 			<br>
 			<div class="mb-3">
 				<label for="inputPassword5" class="form-label">Password</label>
@@ -73,14 +90,17 @@
 				</div>
 			</div>
 			
-			<button style="width:410px; background-color:#00c2cb;" type="submit" class="btn">L   O   G   I   N</button>
+			<button style="width:410px; background-color:#00c2cb;" type="submit" class="btn">S     I     G     N          U     P</button>
 			<br><br>
-			<p class="small mb-5 pb-lg-2"><a class="text-muted" href="Medi-Mouz_Change_Password.html">Forgot password?</a></p>
-            <p class="bland">Don't have an account? <a href="Medi-Mouz_SignUp.html" class="link-info">Register here</a></p>
+			<p class="bland">Already have an account? <a href="Medi-Mouz_LogIn.html" class="link-info">Login here</a></p>
 		</form>
 		</div>
 	</div>
 </div>
+
+
+
+
 
 </body>
 </html>

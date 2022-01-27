@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,8 +32,8 @@
 	<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
  <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 		<div class="mr-auto w-75 p-2">
-			<span><a href="Medi-Mouz.html">Home</a> | 
-			<a href="Medi-Mouz_Documentation.pdf" target="_blank">Documentation</a> 
+			<span><a href="Medi-Mouz_LoggedIn.html">Home</a> | 
+			<a href="Medi-Mouz_Documentation.html">Documentation</a> 
 			| 
 			<a href="Medi-Mouz_Team.html">The Medi-Mouz Team</a>
 			| 
@@ -41,11 +44,13 @@
 		</div>
 		<div class="ml-auto float-right w-25 p-2">
 			<span>
-			<a href="Medi-Mouz_LogIn.html">Log In</a></span>
+			<a href="Medi-Mouz_SignUp.html">Register</a></span>
 		</div>
 	</div>
 </div>
 
+<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
+</div>
 
 <div class="mx-auto rounded border-success mt-5" style="width:600px;">
 
@@ -54,10 +59,40 @@
 	<h2 class="bland"> 				
 		<div class="imgcontainer">
 			<img src="medi-mouz.png" alt="Avatar" class="avatar">
-		</div> Password successfully changed. <a href="Medi-Mouz_LogIn.html" class="link-info">Login here</a></p> 
+		</div> Logging in... <a href="Medi-Mouz_LogIn.html" class="link-info">Please wait..</a></p> 
+
 		
+<?php
+// database connection code
+// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
+$con = mysqli_connect('localhost', 'Medi-Mouz', 'admin@medi-mouz2021','medi-mouz');
 
+// get the post records
+$_SESSION["uname"] = $_POST['uname'];
+$_SESSION["password"] = $_POST['password'];
+
+$uname = $_SESSION["uname"];
+$password = $_SESSION["password"];
+
+// database insert SQL code
+$sql = "SELECT COUNT(username) as Usernames FROM `Doctor` WHERE `username` = '$uname' AND `password` = '$password'";
+
+// database 
+$result = mysqli_query($con, $sql);
+/* Get the number of rows in the result set */
+$row_cnt = mysqli_fetch_row($result);
+if  ($row_cnt[0] == 1) {
+	header("Location: Medi-Mouz_Landing.php");
+}else {
+    header("Location: Medi-Mouz_LogIn_Failed_Attempt.html");
+}
+
+?>
+<form method="get" action="Medi-Mouz_Landing.php">
+    <input type="hidden" name="uname" value="$uname">
+    <input type="submit">
+</form>
 		</h2>
 	</div>
 </div>	

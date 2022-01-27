@@ -13,6 +13,8 @@ session_start();
 </head>
 <body style="background-color:#f2f3f4">
 
+
+
 <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 <div style="background-color:#f2f3f4" class="container-fluid p-4 text-white text-center">
   <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo">
@@ -32,36 +34,24 @@ session_start();
 	<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
  <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 		<div class="mr-auto w-75 p-2">
-			<span><a href="Medi-Mouz_LoggedIn.html">Home</a> | 
-			<a href="Medi-Mouz_Documentation.pdf" target="_blank">Documentation</a> 
+			<span><a href="Medi-Mouz_Home_Logged_In.html">Home</a> | 
+			<a href="Medi-Mouz_Documentation_LoggedIn.html">Documentation</a> 
 			| 
-			<a href="Medi-Mouz_Team.html">The Medi-Mouz Team</a>
+			<a href="Medi-Mouz_Team_LoggedIn.html">The Medi-Mouz Team</a>
 			| 
-			<a href="Medi-Mouz_TermsOfService.html">Terms of Service</a></span>
+			<a href="Medi-Mouz_TermsOfService_LoggedIn.html">Terms of Service</a></span>
 		</div>
 		<div class="ml-auto w-75 p-2">
 			
 		</div>
 		<div class="ml-auto float-right w-25 p-2">
-			<span>
-			<a href="Medi-Mouz_SignUp.html">Register</a></span>
+			<span><a href="Medi-Mouz_LoggedOut.php">Log Out</a>
 		</div>
 	</div>
 </div>
 
-<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
-</div>
 
-<div class="mx-auto rounded border-success mt-5" style="width:600px;">
 
-	<div style="background-color:#002f42; height:400px;" class="bg-gradient container ml-5 mr-5 mb-5 p-5 my-5 border rounded border-success"> 
-
-	<h2 class="bland"> 				
-		<div class="imgcontainer">
-			<img src="medi-mouz.png" alt="Avatar" class="avatar">
-		</div> Logging in... <a href="Medi-Mouz_LogIn.html" class="link-info">Please wait..</a></p> 
-
-		
 <?php
 // database connection code
 // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
@@ -69,33 +59,39 @@ session_start();
 $con = mysqli_connect('localhost', 'Medi-Mouz', 'admin@medi-mouz2021','medi-mouz');
 
 // get the post records
-$_SESSION["uname"] = $_POST['uname'];
-$_SESSION["password"] = $_POST['password'];
 
 $uname = $_SESSION["uname"];
 $password = $_SESSION["password"];
 
+if ($uname == "") {
+	header("location: Medi-Mouz_LogIn.html");
+}
+
 // database insert SQL code
-$sql = "SELECT COUNT(username) as Usernames FROM `Doctor` WHERE `username` = '$uname' AND `password` = '$password'";
+$sql = "SELECT DocId, first_name, last_name FROM `doctor` WHERE `username` = '$uname' AND `password` = '$password'";
 
 // database 
 $result = mysqli_query($con, $sql);
 /* Get the number of rows in the result set */
 $row_cnt = mysqli_fetch_row($result);
-if  ($row_cnt[0] == 1) {
-	header("Location: Medi-Mouz_Landing.php");
-}else {
-    header("Location: Medi-Mouz_LogIn_Failed_Attempt.html");
-}
+$_SESSION["DocId"] = $row_cnt[0];
+$DocId = $_SESSION["DocId"];
+echo  "                 Welcome " . $row_cnt[1] . " "; 
+echo " " . $row_cnt[2] . " ";
 
 ?>
-<form method="get" action="Medi-Mouz_Landing.php">
-    <input type="hidden" name="uname" value="$uname">
-    <input type="submit">
-</form>
-		</h2>
-	</div>
-</div>	
+
+
+<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
+</div>
+
+<div style="background-color:#f2f3f4; margin-top:50px" class="container-fluid p-4 text-white text-center">
+<a style="width:410px; color:#f2f3f4; background-color:#00c2cb;" class="btn" href="Medi-Mouz_existing.php" role="button">View Existing Records</a></div>
+<!--- <img src="medi-mouz2.png" class="rounded float-end" alt="mm logo"> --->
+<div style="background-color:#f2f3f4; margin-top:20px" class="container-fluid p-4 text-white text-center">
+<a style="width:410px; color:#f2f3f4; background-color:#00c2cb;" class="btn" href="Medi-Mouz_newPatient.php" role="button">Add New Patient Record</a></div>
+
+
 
 </body>
 </html>
