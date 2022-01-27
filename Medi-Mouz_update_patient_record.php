@@ -45,9 +45,17 @@ if ($uname == "") {
 
 <div style="background-color:#002f42" class="container-fluid"> 
 	<div style="background-color:#002f42" class="d-flex">
-    		<div class="mr-auto w-75 p-2">
+    <!---<div class="div1">
+      <span>Div One</span>
+    </div>
+    <div class="div2">
+      <span>Div Two</span>
+    </div>
+	<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
+ <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
+		<div class="mr-auto w-75 p-2">
 			<span><a href="Medi-Mouz_Home_Logged_In">Home</a> | 
-			<a href="Medi-Mouz_Documentation.pdf" target="_blank">Documentation</a> 
+			<a href="Medi-Mouz_Documentation_LoggedIn.html">Documentation</a> 
 			| 
 			<a href="Medi-Mouz_Team_LoggedIn.html">The Medi-Mouz Team</a>
 			| 
