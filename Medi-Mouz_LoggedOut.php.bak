@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,17 +23,10 @@
 
 <div style="background-color:#002f42" class="container-fluid"> 
 	<div style="background-color:#002f42" class="d-flex">
-    <!---<div class="div1">
-      <span>Div One</span>
-    </div>
-    <div class="div2">
-      <span>Div Two</span>
-    </div>
-	<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
- <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
+
 		<div class="mr-auto w-75 p-2">
 			<span><a href="Medi-Mouz.html">Home</a> | 
-			<a href="Medi-Mouz_Documentation.pdf" target="_blank">Documentation</a> 
+			<a href="Medi-Mouz_Documentation.html">Documentation</a> 
 			| 
 			<a href="Medi-Mouz_Team.html">The Medi-Mouz Team</a>
 			| 
@@ -40,21 +36,32 @@
 			
 		</div>
 		<div class="ml-auto float-right w-25 p-2">
-			<span>
-			<a href="Medi-Mouz_LogIn.html">Log In</a></span>
+			<span><a href="Medi-Mouz_LogIn.html">Log In</a>
+			|
+			<a href="Medi-Mouz_SignUp.html">Register</a></span>
 		</div>
 	</div>
 </div>
 
+<?php
+// remove all session variables
+session_unset();
+
+// destroy the session
+session_destroy();
+?>
+
+<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
+</div>
 
 <div class="mx-auto rounded border-success mt-5" style="width:600px;">
 
 	<div style="background-color:#002f42; height:400px;" class="bg-gradient container ml-5 mr-5 mb-5 p-5 my-5 border rounded border-success"> 
 
 	<h2 class="bland"> 				
-		<div class="imgcontainer">
+		<div style="width:300px" class="imgcontainer">
 			<img src="medi-mouz.png" alt="Avatar" class="avatar">
-		</div> Password successfully changed. <a href="Medi-Mouz_LogIn.html" class="link-info">Login here</a></p> 
+		</div><p style="padding:2px 5px 2px 50px; width:300px"> You have successfully logged out. <br><a href="Medi-Mouz_LogIn.html" class="link-info">Login here</a> or return to Homepage<a href="Medi-Mouz.html" class="link-info"></p> 
 		
 
 

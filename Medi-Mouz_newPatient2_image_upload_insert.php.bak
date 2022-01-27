@@ -32,25 +32,23 @@ session_start();
 	<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
  <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 		<div class="mr-auto w-75 p-2">
-			<span><a href="Medi-Mouz_LoggedIn.html">Home</a> | 
-			<a href="Medi-Mouz_Documentation.pdf" target="_blank">Documentation</a> 
+			<span><a href="Medi-Mouz_Logged_In.html">Home</a> | 
+			<a href="Medi-Mouz_Documentation_LoggedIn.html">Documentation</a> 
 			| 
-			<a href="Medi-Mouz_Team.html">The Medi-Mouz Team</a>
+			<a href="Medi-Mouz_Team_LoggedIn.html">The Medi-Mouz Team</a>
 			| 
-			<a href="Medi-Mouz_TermsOfService.html">Terms of Service</a></span>
+			<a href="Medi-Mouz_TermsOfService_LoggedIn.html">Terms of Service</a></span>
 		</div>
 		<div class="ml-auto w-75 p-2">
 			
 		</div>
 		<div class="ml-auto float-right w-25 p-2">
 			<span>
-			<a href="Medi-Mouz_SignUp.html">Register</a></span>
+			<a href="Medi-Mouz_LoggedOut.php">Log Out</a></span>
 		</div>
 	</div>
 </div>
 
-<div style="background-color:#002f42" class="container-fluid p-3 text-white text-center">
-</div>
 
 <div class="mx-auto rounded border-success mt-5" style="width:600px;">
 
@@ -59,40 +57,64 @@ session_start();
 	<h2 class="bland"> 				
 		<div class="imgcontainer">
 			<img src="medi-mouz.png" alt="Avatar" class="avatar">
-		</div> Logging in... <a href="Medi-Mouz_LogIn.html" class="link-info">Please wait..</a></p> 
 
-		
 <?php
-// database connection code
-// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
-
+  // Create database connection
 $con = mysqli_connect('localhost', 'Medi-Mouz', 'admin@medi-mouz2021','medi-mouz');
-
-// get the post records
-$_SESSION["uname"] = $_POST['uname'];
-$_SESSION["password"] = $_POST['password'];
 
 $uname = $_SESSION["uname"];
 $password = $_SESSION["password"];
-
-// database insert SQL code
-$sql = "SELECT COUNT(username) as Usernames FROM `Doctor` WHERE `username` = '$uname' AND `password` = '$password'";
-
-// database 
-$result = mysqli_query($con, $sql);
-/* Get the number of rows in the result set */
-$row_cnt = mysqli_fetch_row($result);
-if  ($row_cnt[0] == 1) {
-	header("Location: Medi-Mouz_Landing.php");
-}else {
-    header("Location: Medi-Mouz_LogIn_Failed_Attempt.html");
+$DocId = $_SESSION["DocId"];
+$fname = $_SESSION["fname"];
+$lname = $_SESSION["lname"];
+$Pat_Id = $_SESSION["Pat_Id"];
+if ($uname == "") {
+	header("location: Medi-Mouz_LogIn.html");
 }
 
+  // Initialize message variable
+  $msg = "";
+
+  // If upload button is clicked ...
+if (isset($_POST['upload'])) {
+  	// Get image name
+  	$image = $_FILES['image']['name'];
+  	// Get text
+  	$image_text = mysqli_real_escape_string($con, $_POST['image_text']);
+
+  	// image file directory
+	$target = "images/".basename($image);
+
+	$sql = "INSERT INTO images (image, image_text) VALUES ('$image', '$image_text')";
+  	// execute query
+	mysqli_query($con, $sql);
+
+	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+  	$msg = "Image uploaded successfully";
+	}else{
+  	$msg = "Failed to upload image";
+	}
+}
+$result = mysqli_query($con, "SELECT * FROM images");
+$rage = mysqli_query($con, "SELECT id, image, image_text FROM `images` WHERE `image_text` = '$image_text'");
+$row_cnt = mysqli_fetch_row($rage);
+$_SESSION["img_id"] = $row_cnt[0];
+$img_id = $_SESSION["img_id"];
+
+if ($row_cnt) {
+	header("location: Medi-Mouz_newPatient2_update_dependencies2.php");
+}
 ?>
-<form method="get" action="Medi-Mouz_Landing.php">
-    <input type="hidden" name="uname" value="$uname">
-    <input type="submit">
-</form>
+
+//<?php
+    //while ($row = mysqli_fetch_array($result)) {
+      //echo "<div id='img_div'>";
+      	//echo "<img src='images/".$row['image']."' >";
+      	//echo "<p>".$row['image_text']."</p>";
+      //echo "</div>";
+    //}
+//?>
+
 		</h2>
 	</div>
 </div>	

@@ -30,7 +30,7 @@
  <!--- <img src="medi-mouz.png" class="img-thumbnail rounded float-start" alt="mm logo"> --->
 		<div class="mr-auto w-75 p-2">
 			<span><a href="Medi-Mouz.html">Home</a> | 
-			<a href="Medi-Mouz_Documentation.pdf" target="_blank">Documentation</a> 
+			<a href="Medi-Mouz_Documentation.html">Documentation</a> 
 			| 
 			<a href="Medi-Mouz_Team.html">The Medi-Mouz Team</a>
 			| 
@@ -41,7 +41,7 @@
 		</div>
 		<div class="ml-auto float-right w-25 p-2">
 			<span>
-			<a href="Medi-Mouz_LogIn.html">Log In</a></span>
+			<a href="Medi-Mouz_SignUp.html">Register</a></span>
 		</div>
 	</div>
 </div>
@@ -54,9 +54,37 @@
 	<h2 class="bland"> 				
 		<div class="imgcontainer">
 			<img src="medi-mouz.png" alt="Avatar" class="avatar">
-		</div> Password successfully changed. <a href="Medi-Mouz_LogIn.html" class="link-info">Login here</a></p> 
+		</div> Profile successfully created. <a href="Medi-Mouz_LogIn.html" class="link-info">Login here</a></p> 
 		
+<?php
+// database connection code
+// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
 
+$con = mysqli_connect('localhost', 'Medi-Mouz', 'admin@medi-mouz2021','medi-mouz');
+
+// get the post records
+$uname = $_POST['uname'];
+$password = $_POST['password'];
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$plnr = $_POST['plnr'];
+$phonenum = $_POST['phonenum'];
+$email = $_POST['email'];
+$fofspec = $_POST['fofspec'];
+
+
+// database insert SQL code
+$sql = "INSERT INTO `Doctor` (`username`, `email`, `phone_num`, `fofspec`, `license_num`, `first_name`, `last_name`, `password`) VALUES ('$uname', '$email','$phonenum','$fofspec','$plnr','$fname','$lname','$password')";
+
+// insert in database 
+$rs = mysqli_query($con, $sql);
+
+if($rs)
+{
+	echo "Details successfully registered.";
+}
+
+?>
 
 		</h2>
 	</div>
